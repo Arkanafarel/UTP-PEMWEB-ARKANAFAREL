@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ - Selnex</title>
 
@@ -9,17 +10,11 @@
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
             font-family: "Plus Jakarta Sans", sans-serif;
         }
+
 
         /*Navigation Style*/
-        * {
-            font-family: "Plus Jakarta Sans", sans-serif;
-        }
-
         nav{
             display: flex;
             justify-content: space-between;
@@ -33,7 +28,6 @@
             background-color: white;
             z-index: 1000; 
             box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
-
         }
 
         nav .logo{
@@ -43,6 +37,7 @@
             align-items: center;
             font-size: 22px;
             font-weight: 700;
+            color: #1A3263;
         }
 
         nav .nav{
@@ -54,15 +49,15 @@
 
         nav .nav a{
             text-decoration: none;
-            color: black;
+            color: #1A3263;
             font-size: 16px;
             font-weight: 500;
         }
 
         nav .nav :nth-child(4){
-            color: #3d8ef1;
+            color:  #1A3263;
             text-decoration: none;
-            border-bottom: 2px solid #3d8ef1;
+            border-bottom: 2px solid #1c49a1;
         }
 
         nav .cta{
@@ -80,7 +75,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            color: black;
+            color:  #1A3263;
             width: 85px;
             height: 32px;
             line-height: 1;
@@ -92,7 +87,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #3d8ef1;
+            background-color: #1c49a1;
             
             color: azure;
             width: 85px;
@@ -100,6 +95,7 @@
             line-height: 1;
             border-radius: 100px;
         }
+
 
         /* FAQ Section Style */
         .FAQ-page {
@@ -119,14 +115,14 @@
         }
 
         .FAQ-header-section h2 {
-            font-size: 38px;
+            font-size: 30px;
             font-weight: 600;
-            color: #1e293b;
+            color: rgb(19, 19, 19);
             margin-bottom: 15px;
         }
 
         .FAQ-header-section p {
-            color: #64748b;
+            color: rgb(19, 19, 19);
             margin-bottom: 40px;
         }
 
@@ -168,7 +164,7 @@
         .faq-list-left { flex: 1; }
         .faq-list-right { flex: 1; }
 
-        .support-label { color: #3d8ef1; font-weight: 600; font-size: 14px; text-transform: uppercase; }
+        .support-label { color: #1c49a1; font-weight: 600; font-size: 14px; text-transform: uppercase; }
         .faq-list-left h2 { font-size: 38px; font-weight: 600; margin: 10px 0; }
 
         .faq-accordion {
@@ -187,7 +183,7 @@
             width: 100%;
         }
 
-        .accordion-header span { font-size: 18px; font-weight: 600; color: #1e293b; transition: 0.3s; }
+        .accordion-header span { font-size: 15px; font-weight: 600; color: #1e293b; transition: 0.3s; }
         .icon-arrow { color: #94a3b8; transition: 0.4s; }
 
         .accordion-content {
@@ -213,18 +209,18 @@
         }
 
         .accordion-toggle:checked ~ .accordion-header span {
-            color: #3d8ef1; 
+            color: #1A3263; 
         }
 
         /* Footer Style */
         footer {
+            background-color: #1A3263;
+            color: white;
             width: 100%; 
-            border: 2px solid #e2e8f0;
-            padding: 60px 0;
+            padding: 35px 0;
             border-top: 1px solid #e2e8f0;
             margin-top: 80px;
             border-radius: 50px 50px 0px 0px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
         .container {
@@ -237,57 +233,77 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
+            padding: 0 0 50px;
+        }
+
+        .footer-left{
+            display: flex;
+            flex-direction: column;
+            padding: 0px;
+            gap: 10px;
+            margin-top: 20px;
         }
 
         .footer-left .footer-logo {
             font-size: 24px;
             font-weight: 800;
-            color: #3d8ef1;
             margin-bottom: 15px;
         }
 
         .footer-left p {
             font-size: 14px;
-            color: #64748b;
             margin-bottom: 20px;
         }
 
         .social-links {
             display: flex;
-            gap: 20px;
+            gap: 30px;
         }
 
         .social-links a {
+            color: white;
             text-decoration: none;
-            font-size: 14px;
-            color: #1e293b;
-            font-weight: 500;
+            font-size: 30px;
+            font-weight: 400;
             transition: 0.3s;
         }
 
         .social-links a:hover {
-            color: #3d8ef1;
+            color: rgb(84, 119, 146);
         }
 
         .footer-nav {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            align-items: center;
+            gap: 25px;
             text-align: right;
+            margin-top: 53px;
         }
 
         .footer-nav a {
+            color: white;
             text-decoration: none;
             font-size: 15px;
-            color: #475569;
             transition: 0.3s;
         }
 
         .footer-nav a:hover {
-            color: #3d8ef1;
-            padding-right: 5px; 
+            color: rgb(84, 119, 146);
         }
 
+        hr {
+            margin-bottom: 20px;
+        }
+
+        .copyright {
+            text-align: center;
+            width: 100%;
+        }
+
+        .copyright p {
+            font-size: 14px;
+            margin: 0; 
+        }
         
     </style>
 </head>
@@ -370,11 +386,16 @@
             <div class="footer-content">
                 <div class="footer-left">
                     <div class="footer-logo">Selnex</div>
-                    <p>&copy; 2026 Selnex. All rights reserved.</p>
                     <div class="social-links">
-                        <a href="#">Instagram</a>
-                        <a href="#">Twitter</a>
-                        <a href="#">Facebook</a>
+                        <a href="https://www.instagram.com/arkn.afr/" target="_blank">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://github.com/Arkanafarel" target="_blank">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/arkan-afarel-6b725133b/" target="_blank">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
                     </div>
                 </div>
     
@@ -387,6 +408,12 @@
                         <a href="contact.html">Contact</a>
                     </div>
                 </div>
+            </div>
+    
+            <hr>
+    
+            <div class="copyright">
+                <p>&copy; 2026 Selnex. All rights reserved.</p>
             </div>
         </div>
     </footer>
