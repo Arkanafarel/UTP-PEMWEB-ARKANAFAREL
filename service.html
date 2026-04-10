@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Service</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+
+        * {
+            font-family: "Plus Jakarta Sans", sans-serif;
+        }
+
+        /* Navigation Style */
+        nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%; 
+            background-color: white;
+            z-index: 1000; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+
+        }
+
+        nav .logo{
+            width: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        nav .nav{
+            display: flex;
+            gap: 50px;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        nav .nav a{
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        nav .nav :nth-child(3){
+            color: #3d8ef1;
+            text-decoration: none;
+            border-bottom: 2px solid #3d8ef1;
+        }
+
+        nav .cta{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 190px;
+            padding: 10px;
+            display: flex;
+            gap: 5px;
+        }
+
+        nav .cta #sign_in{
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            width: 85px;
+            height: 32px;
+            line-height: 1;
+            border-radius: 990px;
+        }
+
+        nav .cta #sign_up{
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #3d8ef1;
+            color: azure;
+            width: 85px;
+            height: 39px;
+            line-height: 1;
+            border-radius: 100px;
+        }
+
+        /* Service Section Style */
+        .services-page {
+            padding: 2.5em;
+        }
+
+        .service-container{
+            border: 2px solid #e6e5e5;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 80px 0;
+        }
+
+        .service-header {
+            text-align: center;
+            max-width: 700px;
+            margin: -40px auto 60px;
+            
+        }
+
+        .service-header h2 {
+            font-size: 36px;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+
+        .service-header p {
+            font-size: 16px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto !important;
+        }
+
+        .service-item {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            transition: transform 0.5s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-20px); 
+        }
+
+        .service-item img {
+            width: 100%; 
+            height: 400px; 
+            object-fit: cover;
+            border-radius: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-item h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+
+        .service-item h3::after {
+            display: block;
+            width: 40px;
+            height: 4px;
+            background: #3d8ef1;
+            margin: 10px auto 0;
+            border-radius: 10px;
+        }
+
+        .service-item p {
+            font-size: 15px;
+            color: #475569;
+            line-height: 1.6;
+            max-width: 280px; 
+            margin: 0 auto;
+        }
+
+        /* Footer Style */
+        footer {
+            width: 100%; 
+            border: 2px solid #e2e8f0;
+            padding: 60px 0;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 80px;
+            border-radius: 50px 50px 0px 0px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            background-color: rgb(56, 88, 104);
+        }
+
+        .container {
+            max-width: 1100px; 
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-left .footer-logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #3d8ef1;
+            margin-bottom: 15px;
+        }
+
+        .footer-left p {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            font-size: 14px;
+            color: #1e293b;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #3d8ef1;
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: right;
+        }
+
+        .footer-nav a {
+            text-decoration: none;
+            font-size: 15px;
+            color: #475569;
+            transition: 0.3s;
+        }
+
+        .footer-nav a:hover {
+            color: #3d8ef1;
+            padding-right: 5px; 
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            Selnex
+        </div>
+        
+        <div class="nav">
+            <a href="index.html">Home</a>
+            <a href="about_us.html">About Us</a>
+            <a href="service.html">Service</a>
+            <a href="FAQ.html">FAQ</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="cta">
+            <a id="sign_in" href="#">Sign in</a>
+            <a id="sign_up" href="#">Sign up</a>
+        </div>
+    </nav>
+
+    <section class="services-page">
+        <div class="service-container">
+            <div class="service-header">
+                <h2>Our Services</h2>
+                <p>Choose the travel package that best fits your needs. Enjoy premium comfort whether you're traveling solo or with a large group.</p>
+            </div>
+        
+            <div class="service-grid">
+                <div class="service-item">
+                    <img src="img/paket-individu.jpg" alt="Individual Package">
+                    <h3>Individual Package</h3>
+                    <p>The perfect solution for business trips or solo travelers. Enjoy a spacious single seat, personal charging ports, and extra peace of mind throughout your journey.</p>
+                </div>
+        
+                <div class="service-item">
+                    <img src="img/paket-keluarga.jpg" alt="Family Package">
+                    <h3>Family Package</h3>
+                    <p>Traveling with loved ones is now more affordable and enjoyable. Get adjacent seat blocks and extra luggage space for all your family's travel essentials.</p>
+                </div>
+        
+                <div class="service-item">
+                    <img src="img/paket-group.jpg" alt="Group Package">
+                    <h3>Group Package</h3>
+                    <p>Planning a school trip, office gathering, or pilgrimage? Our group package offers special rates, flexible pickup points, and professional travel assistance.</p>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">Selnex</div>
+                    <p>&copy; 2026 Selnex. All rights reserved.</p>
+                    <div class="social-links">
+                        <a href="#">Instagram</a>
+                        <a href="#">Twitter</a>
+                        <a href="#">Facebook</a>
+                    </div>
+                </div>
+    
+                <div class="footer-right">
+                    <div class="footer-nav">
+                        <a href="index.html">Home</a>
+                        <a href="about_us.html">About Us</a>
+                        <a href="service.html">Service</a>
+                        <a href="FAQ.html">FAQ</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

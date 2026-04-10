@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Selnex</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Plus Jakarta Sans", sans-serif;
+        }
+
+        /*Navigation Style*/
+        * {
+            font-family: "Plus Jakarta Sans", sans-serif;
+        }
+
+        nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%; 
+            background-color: white;
+            z-index: 1000; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+
+        }
+
+        nav .logo{
+            width: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        nav .nav{
+            display: flex;
+            gap: 50px;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        nav .nav a{
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        nav .nav :nth-child(4){
+            color: #3d8ef1;
+            text-decoration: none;
+            border-bottom: 2px solid #3d8ef1;
+        }
+
+        nav .cta{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 190px;
+            padding: 10px;
+            display: flex;
+            gap: 5px;
+        }
+
+        nav .cta #sign_in{
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            width: 85px;
+            height: 32px;
+            line-height: 1;
+            border-radius: 990px;
+        }
+
+        nav .cta #sign_up{
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #3d8ef1;
+            
+            color: azure;
+            width: 85px;
+            height: 39px;
+            line-height: 1;
+            border-radius: 100px;
+        }
+
+        /* FAQ Section Style */
+        .FAQ-page {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 150px 20px 100px; 
+        }
+
+        .FAQ-header-section {
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+            margin-bottom: 100px;
+        }
+
+        .FAQ-header-section h2 {
+            font-size: 38px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+
+        .FAQ-header-section p {
+            color: #64748b;
+            margin-bottom: 40px;
+        }
+
+        .search-wrapper {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+        }
+
+        .search-wrapper input {
+            width: 100%;
+            padding: 18px 25px 18px 55px;
+            font-size: 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 15px;
+            outline: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: 0.3s;
+        }
+
+        .search-wrapper input:focus { border-color: #3d8ef1; }
+
+        .faq-list-section {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1100px;
+            width: 100%;
+            gap: 80px;
+        }
+
+        .faq-list-left { flex: 1; }
+        .faq-list-right { flex: 1; }
+
+        .support-label { color: #3d8ef1; font-weight: 600; font-size: 14px; text-transform: uppercase; }
+        .faq-list-left h2 { font-size: 38px; font-weight: 600; margin: 10px 0; }
+
+        .faq-accordion {
+            border-bottom: 1px solid #e2e8f0;
+            padding: 10px 0;
+        }
+
+        .accordion-toggle { display: none; } 
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .accordion-header span { font-size: 18px; font-weight: 600; color: #1e293b; transition: 0.3s; }
+        .icon-arrow { color: #94a3b8; transition: 0.4s; }
+
+        .accordion-content {
+            max-height: 0; 
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0, 1, 0, 1);
+        }
+
+        .accordion-content p {
+            padding-bottom: 15px;
+            color: #64748b;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .accordion-toggle:checked ~ .accordion-content {
+            max-height: 500px;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .accordion-toggle:checked ~ .accordion-header .icon-arrow {
+            transform: rotate(180deg); 
+        }
+
+        .accordion-toggle:checked ~ .accordion-header span {
+            color: #3d8ef1; 
+        }
+
+        /* Footer Style */
+        footer {
+            width: 100%; 
+            border: 2px solid #e2e8f0;
+            padding: 60px 0;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 80px;
+            border-radius: 50px 50px 0px 0px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1100px; 
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-left .footer-logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #3d8ef1;
+            margin-bottom: 15px;
+        }
+
+        .footer-left p {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            font-size: 14px;
+            color: #1e293b;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #3d8ef1;
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: right;
+        }
+
+        .footer-nav a {
+            text-decoration: none;
+            font-size: 15px;
+            color: #475569;
+            transition: 0.3s;
+        }
+
+        .footer-nav a:hover {
+            color: #3d8ef1;
+            padding-right: 5px; 
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Selnex</div>
+        <div class="nav">
+            <a href="index.html">Home</a>
+            <a href="about_us.html">About Us</a>
+            <a href="service.html">Service</a>
+            <a href="FAQ.html" class="active">FAQ</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="cta">
+            <a id="sign_in" href="#">Sign in</a>
+            <a id="sign_up" href="#">Sign up</a>
+        </div>
+    </nav>
+
+    <section class="FAQ-page">
+        <div class="FAQ-header-section">
+            <h2>How can we help you?</h2>
+            <p>Welcome to our Web Center! Find answers to common questions about our bus services.</p>
+            <div class="search-wrapper">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" placeholder="Search for questions...">
+            </div>
+        </div>
+
+        <div class="faq-list-section">
+            <div class="faq-list-left">
+                <span class="support-label">Support</span>
+                <h2>FAQS</h2>
+                <p>Have specific questions? We've gathered the most common queries to help you travel better with Selnex.</p>
+            </div>
+        
+            <div class="faq-list-right">
+                <div class="faq-accordion">
+                    <input type="checkbox" id="faq-1" class="accordion-toggle">
+                    <label for="faq-1" class="accordion-header">
+                        <span>How do I book a ticket through Selnex?</span>
+                        <svg class="icon-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </label>
+                    <div class="accordion-content">
+                        <p>You can book your ticket through our official website or mobile app. Simply select your departure, destination, and date, then choose your preferred seat and complete the payment.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-accordion">
+                    <input type="checkbox" id="faq-2" class="accordion-toggle">
+                    <label for="faq-2" class="accordion-header">
+                        <span>What are the requirements for child passengers?</span>
+                        <svg class="icon-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </label>
+                    <div class="accordion-content">
+                        <p>Children under 3 years old can travel for free if they sit on an adult's lap. Children aged 3 and above require a full-price ticket and their own seat.</p>
+                    </div>
+                </div>
+
+                <div class="faq-accordion">
+                    <input type="checkbox" id="faq-3" class="accordion-toggle">
+                    <label for="faq-3" class="accordion-header">
+                        <span>Can I reschedule my departure date?</span>
+                        <svg class="icon-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </label>
+                    <div class="accordion-content">
+                        <p>Yes, rescheduling is available up to 24 hours before departure through our "Manage Booking" section, subject to seat availability and a small administrative fee.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">Selnex</div>
+                    <p>&copy; 2026 Selnex. All rights reserved.</p>
+                    <div class="social-links">
+                        <a href="#">Instagram</a>
+                        <a href="#">Twitter</a>
+                        <a href="#">Facebook</a>
+                    </div>
+                </div>
+    
+                <div class="footer-right">
+                    <div class="footer-nav">
+                        <a href="index.html">Home</a>
+                        <a href="about_us.html">About Us</a>
+                        <a href="service.html">Service</a>
+                        <a href="FAQ.html">FAQ</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
